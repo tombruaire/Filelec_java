@@ -45,11 +45,9 @@ public class Modele {
 	
 	private static Bdd uneBdd = new Bdd ("localhost", "filelec", "root", "");
 	
-	// private static Bdd uneBdd = new Bdd ("172.20.111.118", "filelec", "tom", "tom");
-	
 	/*** GESTION DES CLIENTS ***/
 	
-	// Sélection d'un client en fonction de son email
+	// SÃ©lection d'un client en fonction de son email
 	public static Client selectWhereEmailClient (String email) {
 		Client unClient = null;
 		String requete = "SELECT * FROM client WHERE email = '"+email+"';";
@@ -84,12 +82,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unClient;
 	}
 	
-	// Sélection d'un client en fonction de son email et de son mdp
+	// SÃ©lection d'un client en fonction de son email et de son mdp
 	public static Client selectWhereClient (String email, String mdp) {
 		Client unClient = null;
 		String requete = "SELECT * FROM client WHERE email = '"+email+"' and mdp = '"+mdp+"';";
@@ -124,12 +122,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unClient;
 	}
 	
-	// Mise à jour du nombre de tentatives du client (nbTentatives + 1)
+	// Mise Ã  jour du nombre de tentatives du client (nbTentatives + 1)
 	public static void updateNbTentatives (Client unClient) {
 		String requete = "UPDATE client SET nbTentatives = "
 				+ (unClient.getNbTentatives()+1) + " WHERE email = '"+unClient.getEmail()+"' ;";
@@ -144,7 +142,7 @@ public class Modele {
 		}
 	}
 	
-	// Remise à 0 du nombre de tentatives du client
+	// Remise Ã  0 du nombre de tentatives du client
 	public static void resetNbTentatives (Client unClient) {
 		String requete = "UPDATE client SET nbTentatives = 0 WHERE email = '"+unClient.getEmail()+"';";
 		try {
@@ -172,7 +170,7 @@ public class Modele {
 		}
 	}
 	
-	// Mise à jour de la date de dernière connexion du client
+	// Mise Ã  jour de la date de derniÃ¨re connexion du client
 	public static void updateConnexion (Client unClient) {
 		String requete = "UPDATE client SET connexion = NOW() WHERE email = '"+unClient.getEmail()+"';";
 		try {
@@ -186,7 +184,7 @@ public class Modele {
 		}
 	}
 	
-	// Mise à jour du nombre de connexion du client
+	// Mise Ã  jour du nombre de connexion du client
 	public static void updateNbConnexion (Client unClient) {
 		String requete = "UPDATE client SET nbConnexion = nbConnexion + 1 WHERE email = '"+unClient.getEmail()+"';";
 		try {
@@ -200,7 +198,7 @@ public class Modele {
 		}
 	}
 	
-	// Sélection de tous les clients
+	// SÃ©lection de tous les clients
 	public static ArrayList<Client> selectAllClients () {
 		ArrayList<Client> lesClients = new ArrayList<Client>();
 		String requete = "SELECT * FROM client;";
@@ -236,7 +234,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesClients;
 	}
@@ -283,12 +281,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesClients;
 	}
 	
-	// Sélection de tous les clients de la view 'vclient'
+	// SÃ©lection de tous les clients de la view 'vclient'
 	public static ArrayList<VClient> selectAllVClients () {
 		ArrayList<VClient> lesClients = new ArrayList<VClient>();
 		String requete = "SELECT * FROM vclient;";
@@ -324,12 +322,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesClients;
 	}
 	
-	// Recherche d'un client à partir de la view 'vclient'
+	// Recherche d'un client Ã  partir de la view 'vclient'
 	public static ArrayList<VClient> selectLikeVClient(String mot) {
 		ArrayList<VClient> lesClients = new ArrayList<VClient>();
 		String requete = "SELECT * FROM vclient WHERE "
@@ -373,12 +371,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesClients;
 	}
 	
-	// Sélection d'un client en fonction de son email à partir de la view 'vclient'
+	// SÃ©lection d'un client en fonction de son email Ã  partir de la view 'vclient'
 	public static VClient selectWhereEmailVClient (String email) {
 		VClient unClient = null;
 		String requete = "SELECT * FROM vclient WHERE email = '"+email+"';";
@@ -413,12 +411,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unClient;
 	}
 	
-	// Sélection de tous les clients archivés
+	// SÃ©lection de tous les clients archivÃ©s
 	public static ArrayList<HistoClient> selectAllHistoClients () {
 		ArrayList<HistoClient> lesClients = new ArrayList<HistoClient>();
 		String requete = "SELECT * FROM histoClient;";
@@ -457,12 +455,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesClients;
 	}
 	
-	// Recherche d'un client archivé
+	// Recherche d'un client archivÃ©
 	public static ArrayList<HistoClient> selectLikeHistoClient(String mot) {
 		ArrayList<HistoClient> lesClients = new ArrayList<HistoClient>();
 		String requete = "SELECT * FROM histoClient WHERE "
@@ -506,12 +504,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesClients;
 	}
 	
-	// Sélection des 3 dernières connexion d'un client
+	// SÃ©lection des 3 derniÃ¨res connexion d'un client
 	public static ArrayList<VClient> selectLastConnexionClients () {
 		ArrayList<VClient> lesClients = new ArrayList<VClient>();
 		String requete = "SELECT * FROM vclient ORDER BY connexion DESC LIMIT 3;";
@@ -547,7 +545,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesClients;
 	}
@@ -565,7 +563,7 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbclient;
 	}
@@ -593,11 +591,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Sélection de tous les particuliers
+	// SÃ©lection de tous les particuliers
 	public static ArrayList<Particulier> selectAllParticuliers () {
 		ArrayList<Particulier> lesParticuliers = new ArrayList<Particulier>();
 		String requete = "SELECT * FROM particulier;";
@@ -626,7 +624,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesParticuliers;
 	}
@@ -672,12 +670,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesParticuliers;
 	}
 	
-	// Sélection d'un particulier
+	// SÃ©lection d'un particulier
 	public static Particulier selectWhereParticulier (String tel, String email) {
 		Particulier unParticulier = null;
 		String requete = "SELECT * FROM particulier WHERE tel = '"+tel+"' AND email = '"+email+"';";
@@ -705,7 +703,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unParticulier;
 	}
@@ -731,7 +729,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
@@ -745,11 +743,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Sélection de tous les particuliers archivés
+	// SÃ©lection de tous les particuliers archivÃ©s
 	public static ArrayList<HistoParticulier> selectAllHistoParticuliers () {
 		ArrayList<HistoParticulier> lesParticuliers = new ArrayList<HistoParticulier>();
 		String requete = "SELECT * FROM histoParticulier;";
@@ -787,12 +785,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesParticuliers;
 	}
 	
-	// Recherche d'un particulier archivé
+	// Recherche d'un particulier archivÃ©
 	public static ArrayList<HistoParticulier> selectLikeHistoParticulier(String mot) {
 		ArrayList<HistoParticulier> lesParticuliers = new ArrayList<HistoParticulier>();
 		String requete = "SELECT * FROM histoParticulier WHERE "
@@ -835,7 +833,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesParticuliers;
 	}
@@ -853,7 +851,7 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbparticulier;
 	}
@@ -882,11 +880,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Sélection de tous les professionnels
+	// SÃ©lection de tous les professionnels
 	public static ArrayList<Professionnel> selectAllProfessionnels () {
 		ArrayList<Professionnel> lesProfessionnels = new ArrayList<Professionnel>();
 		String requete = "SELECT * FROM professionnel;";
@@ -916,7 +914,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProfessionnels;
 	}
@@ -964,12 +962,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProfessionnels;
 	}
 	
-	// Sélection d'un professionnel
+	// SÃ©lection d'un professionnel
 	public static Professionnel selectWhereProfessionnel (String tel, String email) {
 		Professionnel unProfessionnel = null;
 		String requete = "SELECT * FROM professionnel WHERE tel = '"+tel+"' AND email = '"+email+"';";
@@ -998,7 +996,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unProfessionnel;
 	}
@@ -1024,7 +1022,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
@@ -1038,11 +1036,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Sélection de tous les professionnels archivés
+	// SÃ©lection de tous les professionnels archivÃ©s
 	public static ArrayList<HistoProfessionnel> selectAllHistoProfessionnels () {
 		ArrayList<HistoProfessionnel> lesProfessionnels = new ArrayList<HistoProfessionnel>();
 		String requete = "SELECT * FROM histoProfessionnel;";
@@ -1081,12 +1079,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProfessionnels;
 	}
 	
-	// Recherche d'un professionnel archivé
+	// Recherche d'un professionnel archivÃ©
 	public static ArrayList<HistoProfessionnel> selectLikeHistoProfessionnel(String mot) {
 		ArrayList<HistoProfessionnel> lesProfessionnels = new ArrayList<HistoProfessionnel>();
 		String requete = "SELECT * FROM histoProfessionnel WHERE "
@@ -1130,7 +1128,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProfessionnels;
 	}
@@ -1148,7 +1146,7 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbprofessionnel;
 	}
@@ -1165,11 +1163,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Sélection de tous les types
+	// SÃ©lection de tous les types
 	public static ArrayList<Type> selectAllTypes () {
 		ArrayList<Type> lesTypes = new ArrayList<Type>();
 		String requete = "SELECT * FROM type ORDER BY idtype;";
@@ -1187,12 +1185,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesTypes;
 	}
 	
-	// Sélection d'un type en fonction de son libellé
+	// SÃ©lection d'un type en fonction de son libellÃ©
 	public static Type selectWhereType (String libelle) {
 		Type unType = null;
 		String requete = "SELECT * FROM type WHERE libelle = '"+libelle+"';";
@@ -1209,12 +1207,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unType;
 	}
 	
-	// Édition d'un type
+	// Ã‰dition d'un type
 	public static void updateType (Type unType) {
 		String requete = "UPDATE type SET libelle = '"+unType.getLibelle()+"' WHERE idtype = "+unType.getIdtype()+";";
 		try {
@@ -1224,7 +1222,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
@@ -1238,7 +1236,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
@@ -1261,7 +1259,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesTypes;
 	}
@@ -1279,14 +1277,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbtype;
 	}
 	
 	/*** GESTION DES PRODUITS ***/
 	
-	// Séléction de tous les produits
+	// SÃ©lÃ©ction de tous les produits
 	public static ArrayList<Produit> selectAllProduits () {
 		ArrayList<Produit> lesProduits = new ArrayList<Produit>();
 		String requete = "SELECT * FROM produit;";
@@ -1310,12 +1308,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProduits;
 	}
 	
-	// Séléction de la view vproduit
+	// SÃ©lÃ©ction de la view vproduit
 	public static ArrayList<VProduit> selectAllVProduits () {
 		ArrayList<VProduit> lesVProduits = new ArrayList<VProduit>();
 		String requete = "SELECT * FROM vproduit;";
@@ -1339,7 +1337,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesVProduits;
 	}
@@ -1375,12 +1373,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProduits;
 	}
 	
-	// Sélection d'un produit à partir de la view 'vproduit' en fonction de son id
+	// SÃ©lection d'un produit Ã  partir de la view 'vproduit' en fonction de son id
 	public static VProduit selectWhereVProduit (int idproduit) {
 		VProduit unProduit = null;
 		String requete = "SELECT * FROM vproduit WHERE idproduit = "+idproduit+";";
@@ -1403,12 +1401,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unProduit;
 	}
 	
-	// Sélection d'un produit à partir de la view 'vproduit' en fonction de son nom
+	// SÃ©lection d'un produit Ã  partir de la view 'vproduit' en fonction de son nom
 	public static VProduit selectWhereVProduit (String nomproduit) {
 		VProduit unProduit = null;
 		String requete = "SELECT * FROM vproduit WHERE nomproduit = '"+nomproduit+"';";
@@ -1431,12 +1429,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unProduit;
 	}
 	
-	// Recherche d'un produit à partir de la view 'vproduit'
+	// Recherche d'un produit Ã  partir de la view 'vproduit'
 	public static ArrayList<VProduit> selectLikeVProduit(String mot) {
 		ArrayList<VProduit> lesProduits = new ArrayList<VProduit>();
 		String requete = "SELECT * FROM vproduit WHERE "
@@ -1466,12 +1464,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProduits;
 	}
 	
-	// Sélection de tous les produits archivés
+	// SÃ©lection de tous les produits archivÃ©s
 	public static ArrayList<HistoProduit> selectAllHistoProduits () {
 		ArrayList<HistoProduit> lesProduits = new ArrayList<HistoProduit>();
 		String requete = "SELECT * FROM histoProduit;";
@@ -1498,12 +1496,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProduits;
 	}
 	
-	// Recherche d'un produit archivé
+	// Recherche d'un produit archivÃ©
 	public static ArrayList<HistoProduit> selectLikeHistoProduit(String mot) {
 		ArrayList<HistoProduit> lesProduits = new ArrayList<HistoProduit>();
 		String requete = "SELECT * FROM histoProduit WHERE "
@@ -1541,12 +1539,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesProduits;
 	}
 	
-	// Sélection d'un produit en fonction de son id
+	// SÃ©lection d'un produit en fonction de son id
 	public static Produit selectWhereProduit (int idproduit) {
 		Produit unProduit = null;
 		String requete = "SELECT * FROM produit WHERE idproduit = '"+idproduit+"';";
@@ -1569,12 +1567,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unProduit;
 	}
 	
-	// Sélection d'un produit en fonction de son nom
+	// SÃ©lection d'un produit en fonction de son nom
 	public static Produit selectWhereNomProduit (String nomproduit) {
 		Produit unProduit = null;
 		String requete = "SELECT * FROM produit WHERE nomproduit = '"+nomproduit+"';";
@@ -1597,7 +1595,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unProduit;
 	}
@@ -1618,11 +1616,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Édition d'un produit
+	// Ã‰dition d'un produit
 	public static void updateProduit (Produit unProduit) {
 		String requete = "UPDATE produit SET nomproduit = '"
 				+ unProduit.getNomproduit() + "', imageproduit = '" 
@@ -1638,7 +1636,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
@@ -1652,7 +1650,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 
@@ -1669,14 +1667,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbproduit;
 	}
 	
 	/*** GESTION DES COMMANDES ***/
 	
-	// Sélection de toutes les commandes
+	// SÃ©lection de toutes les commandes
 	public static ArrayList<Commande> selectAllCommandes () {
 		ArrayList<Commande> lesCommandes = new ArrayList<Commande>();
 		String requete = "SELECT * FROM commande;";
@@ -1702,12 +1700,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommandes;
 	}
 	
-	// Sélection d'une commande d'un client
+	// SÃ©lection d'une commande d'un client
 	public static Commande selectWhereCommandeClient (int idclient) {
 		Commande uneCommande = null;
 		String requete = "SELECT * FROM commande WHERE idclient = "+idclient+";";
@@ -1732,7 +1730,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return uneCommande;
 	}
@@ -1773,12 +1771,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommandes;
 	}
 	
-	// Sélection de toutes les commandes de la view 'vcommande'
+	// SÃ©lection de toutes les commandes de la view 'vcommande'
 	public static ArrayList<VCommande> selectAllVCommandes () {
 		ArrayList<VCommande> lesVCommandes = new ArrayList<VCommande>();
 		String requete = "SELECT * FROM vcommande;";
@@ -1808,12 +1806,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesVCommandes;
 	}
 	
-	// Recherche d'une commande à partir de la view 'vcommande'
+	// Recherche d'une commande Ã  partir de la view 'vcommande'
 	public static ArrayList<VCommande> selectLikeVCommande(String mot) {
 		ArrayList<VCommande> lesCommandes = new ArrayList<VCommande>();
 		String requete = "SELECT * FROM vcommande WHERE "
@@ -1857,12 +1855,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommandes;
 	}
 	
-	// Sélection de toutes les commandes archivées
+	// SÃ©lection de toutes les commandes archivÃ©es
 	public static ArrayList<HistoCommande> selectAllHistoCommandes () {
 		ArrayList<HistoCommande> lesCommandes = new ArrayList<HistoCommande>();
 		String requete = "SELECT * FROM histoCommande;";
@@ -1891,12 +1889,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommandes;
 	}
 	
-	// Recherche d'une commande archivée
+	// Recherche d'une commande archivÃ©e
 	public static ArrayList<HistoCommande> selectLikeHistoCommande(String mot) {
 		ArrayList<HistoCommande> lesCommandes = new ArrayList<HistoCommande>();
 		String requete = "SELECT * FROM histoCommande WHERE "
@@ -1937,7 +1935,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommandes;
 	}
@@ -1955,14 +1953,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbcommande;
 	}
 	
 	/*** GESTION DU PANIER ***/
 	
-	// Sélection de toutes les commandes du panier
+	// SÃ©lection de toutes les commandes du panier
 	public static ArrayList<Panier> selectAllPaniers () {
 		ArrayList<Panier> lesPaniers = new ArrayList<Panier>();
 		String requete = "SELECT * FROM panier;";
@@ -1983,7 +1981,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesPaniers;
 	}
@@ -2012,12 +2010,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesPaniers;
 	}
 	
-	// Sélection de toutes les commandes de la view 'vpanier'
+	// SÃ©lection de toutes les commandes de la view 'vpanier'
 	public static ArrayList<VPanier> selectAllVPanier () {
 		ArrayList<VPanier> lesVPaniers = new ArrayList<VPanier>();
 		String requete = "SELECT * FROM vpanier;";
@@ -2042,12 +2040,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesVPaniers;
 	}
 	
-	// Recherche d'une commande d'un panier à partir de la view 'vpanier'
+	// Recherche d'une commande d'un panier Ã  partir de la view 'vpanier'
 	public static ArrayList<VPanier> selectLikeVPanier(String mot) {
 		ArrayList<VPanier> lesPaniers = new ArrayList<VPanier>();
 		String requete = "SELECT * FROM panier WHERE "
@@ -2081,12 +2079,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesPaniers;
 	}
 	
-	// Sélection de toutes les commandes du panier archivées
+	// SÃ©lection de toutes les commandes du panier archivÃ©es
 	public static ArrayList<HistoPanier> selectAllHistoPaniers () {
 		ArrayList<HistoPanier> lesPaniers = new ArrayList<HistoPanier>();
 		String requete = "SELECT * FROM histoPanier;";
@@ -2109,12 +2107,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesPaniers;
 	}
 	
-	// Recherche d'une commande d'un panier archivée
+	// Recherche d'une commande d'un panier archivÃ©e
 	public static ArrayList<HistoPanier> selectLikeHistoPanier(String mot) {
 		ArrayList<HistoPanier> lesPaniers = new ArrayList<HistoPanier>();
 		String requete = "SELECT * FROM histoPanier WHERE "
@@ -2144,7 +2142,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesPaniers;
 	}
@@ -2162,14 +2160,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbpanier;
 	}
 	
 	/*** GESTION DES FACTURES ***/
 	
-	// Sélection de toutes les factures
+	// SÃ©lection de toutes les factures
 	public static ArrayList<Facture> selectAllFactures () {
 		ArrayList<Facture> lesFactures = new ArrayList<Facture>();
 		String requete = "SELECT * FROM facture;";
@@ -2191,12 +2189,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesFactures;
 	}
 	
-	// Sélection d'une facture d'un client
+	// SÃ©lection d'une facture d'un client
 	public static Facture selectWhereFactureClient (int idclient) {
 		Facture uneFacture = null;
 		String requete = "SELECT * FROM facture WHERE idclient = "+idclient+";";
@@ -2217,12 +2215,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return uneFacture;
 	}
 	
-	// Sélection d'une facture d'un client et d'un produit
+	// SÃ©lection d'une facture d'un client et d'un produit
 	public static Facture selectWhereFactureClientProduit (int idclient, int idproduit) {
 		Facture uneFacture = null;
 		String requete = "SELECT * FROM facture WHERE idclient = "+idclient+" and idproduit = "+idproduit+";";
@@ -2243,7 +2241,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return uneFacture;
 	}
@@ -2276,12 +2274,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesFactures;
 	}
 	
-	// Sélection de toutes les factures de la view 'vfacture'
+	// SÃ©lection de toutes les factures de la view 'vfacture'
 	public static ArrayList<VFacture> selectAllVFactures () {
 		ArrayList<VFacture> lesVFactures = new ArrayList<VFacture>();
 		String requete = "SELECT * FROM vfacture;";
@@ -2318,7 +2316,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesVFactures;
 	}
@@ -2381,12 +2379,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesFactures;
 	}
 	
-	// Sélection de toutes les factures archivées
+	// SÃ©lection de toutes les factures archivÃ©es
 	public static ArrayList<HistoFacture> selectAllHistoFactures () {
 		ArrayList<HistoFacture> lesFactures = new ArrayList<HistoFacture>();
 		String requete = "SELECT * FROM histoFacture;";
@@ -2411,12 +2409,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesFactures;
 	}
 	
-	// Recherche d'une facture archivée
+	// Recherche d'une facture archivÃ©e
 	public static ArrayList<HistoFacture> selectLikeHistoFacture(String mot) {
 		ArrayList<HistoFacture> lesFactures = new ArrayList<HistoFacture>();
 		String requete = "SELECT * FROM histoFacture WHERE "
@@ -2450,7 +2448,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesFactures;
 	}
@@ -2468,14 +2466,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbfacture;
 	}
 	
 	/*** GESTION DES MESSAGES ***/
 	
-	// Sélection de tous les messages
+	// SÃ©lection de tous les messages
 	public static ArrayList<Message> selectAllMessages () {
 		ArrayList<Message> lesMessages = new ArrayList<Message>();
 		String requete = "SELECT * FROM message;";
@@ -2497,12 +2495,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesMessages;
 	}
 	
-	// Sélection des messages 'lu' (1) ou 'non lu' (0)
+	// SÃ©lection des messages 'lu' (1) ou 'non lu' (0)
 	public static Message selectWhereMessageLu (int lu) {
 		Message unMessage = null;
 		String requete = "SELECT * FROM message WHERE lu = "+lu+";";
@@ -2523,12 +2521,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unMessage;
 	}
 	
-	// Sélection des messages en fonction de la date d'envoi
+	// SÃ©lection des messages en fonction de la date d'envoi
 	public static Message selectWhereMessageDate (String date_envoi) {
 		Message unMessage = null;
 		String requete = "SELECT * FROM message WHERE date_envoi = '"+date_envoi+"';";
@@ -2549,7 +2547,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return unMessage;
 	}
@@ -2582,12 +2580,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesMessages;
 	}
 	
-	// Sélection de tous les messages de la view 'vmessage'
+	// SÃ©lection de tous les messages de la view 'vmessage'
 	public static ArrayList<VMessage> selectAllVMessages () {
 		ArrayList<VMessage> lesVMessages = new ArrayList<VMessage>();
 		String requete = "SELECT * FROM vmessage;";
@@ -2611,12 +2609,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesVMessages;
 	}
 	
-	// Recherche d'un message à partir de la view 'vmessage'
+	// Recherche d'un message Ã  partir de la view 'vmessage'
 	public static ArrayList<VMessage> selectLikeVMessage(String mot) {
 		ArrayList<VMessage> lesMessages = new ArrayList<VMessage>();
 		String requete = "SELECT * FROM vmessage WHERE "
@@ -2646,12 +2644,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesMessages;
 	}
 	
-	// Sélection de tous les messages archivés
+	// SÃ©lection de tous les messages archivÃ©s
 	public static ArrayList<HistoMessage> selectAllHistoMessages () {
 		ArrayList<HistoMessage> lesMessages = new ArrayList<HistoMessage>();
 		String requete = "SELECT * FROM histoMessage;";
@@ -2676,12 +2674,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesMessages;
 	}
 	
-	// Recherche d'un message archivé
+	// Recherche d'un message archivÃ©
 	public static ArrayList<HistoMessage> selectLikeHistoMessage(String mot) {
 		ArrayList<HistoMessage> lesMessages = new ArrayList<HistoMessage>();
 		String requete = "SELECT * FROM histoMessage WHERE "
@@ -2715,7 +2713,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesMessages;
 	}
@@ -2733,12 +2731,12 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbmessage;
 	}
 	
-	// Nombre de messages envoyés d'un client
+	// Nombre de messages envoyÃ©s d'un client
 	public static int countMessagesEnvoyeClient (int idclient) {
 		int nbmessage = 0;
 		String requete = "SELECT count(*) as nb FROM message WHERE id_exp  = "+idclient+";";
@@ -2751,12 +2749,12 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbmessage;
 	}
 	
-	// Nombre de messages reçu d'un client
+	// Nombre de messages reÃ§u d'un client
 	public static int countMessagesRecuClient (int idclient) {
 		int nbmessage = 0;
 		String requete = "SELECT count(*) as nb FROM message WHERE id_dest  = "+idclient+";";
@@ -2769,14 +2767,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbmessage;
 	}
 	
 	/*** GESTION DES COMMENTAIRES ***/
 	
-	// Sélection de tous les commentaires
+	// SÃ©lection de tous les commentaires
 	public static ArrayList<Commentaire> selectAllCommentaires () {
 		ArrayList<Commentaire> lesCommentaires = new ArrayList<Commentaire>();
 		String requete = "SELECT * FROM commentaire;";
@@ -2798,7 +2796,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommentaires;
 	}
@@ -2831,12 +2829,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommentaires;
 	}
 	
-	// Sélection de tous les commentaires de la view 'vcommentaire'
+	// SÃ©lection de tous les commentaires de la view 'vcommentaire'
 	public static ArrayList<VCommentaire> selectAllVCommentaires () {
 		ArrayList<VCommentaire> lesVCommentaires = new ArrayList<VCommentaire>();
 		String requete = "SELECT * FROM vcommentaire;";
@@ -2858,12 +2856,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesVCommentaires;
 	}
 	
-	// Recherche d'un commentaire à partir de la view 'vcommentaire'
+	// Recherche d'un commentaire Ã  partir de la view 'vcommentaire'
 	public static ArrayList<VCommentaire> selectLikeVCommentaire(String mot) {
 		ArrayList<VCommentaire> lesCommentaires = new ArrayList<VCommentaire>();
 		String requete = "SELECT * FROM vcommentaire WHERE "
@@ -2891,12 +2889,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommentaires;
 	}
 	
-	// Sélection de tous les commentaires archivés
+	// SÃ©lection de tous les commentaires archivÃ©s
 	public static ArrayList<HistoCommentaire> selectAllHistoCommentaires () {
 		ArrayList<HistoCommentaire> lesCommentaires = new ArrayList<HistoCommentaire>();
 		String requete = "SELECT * FROM histoCommentaire;";
@@ -2921,12 +2919,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommentaires;
 	}
 	
-	// Recherche d'un commentaire archivé
+	// Recherche d'un commentaire archivÃ©
 	public static ArrayList<HistoCommentaire> selectLikeHistoCommentaire(String mot) {
 		ArrayList<HistoCommentaire> lesCommentaires = new ArrayList<HistoCommentaire>();
 		String requete = "SELECT * FROM histoCommentaire WHERE "
@@ -2960,7 +2958,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesCommentaires;
 	}
@@ -2978,7 +2976,7 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbcommentaire;
 	}
@@ -2996,7 +2994,7 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbcommentaire;
 	}
@@ -3013,11 +3011,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Édition d'une question
+	// Ã‰dition d'une question
 	public static void updateQuestion (Question uneQuestion) {
 		String requete = "UPDATE question SET enonce = '"+uneQuestion.getEnonce()+"' WHERE idquestion = "+uneQuestion.getIdquestion()+";";
 		try {
@@ -3027,7 +3025,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
@@ -3041,11 +3039,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Sélection de toutes les questions
+	// SÃ©lection de toutes les questions
 	public static ArrayList<Question> selectAllQuestions () {
 		ArrayList<Question> lesQuestions = new ArrayList<Question>();
 		String requete = "SELECT * FROM question;";
@@ -3063,12 +3061,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesQuestions;
 	}
 	
-	// Sélection d'une question en fonction de son énonce
+	// SÃ©lection d'une question en fonction de son Ã©nonce
 	public static Question selectWhereQuestion (String enonce) {
 		Question uneQuestion = null;
 		String requete = "SELECT * FROM question WHERE enonce = '"+enonce+"';";
@@ -3085,7 +3083,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return uneQuestion;
 	}
@@ -3110,12 +3108,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesQuestions;
 	}
 	
-	// Sélection de toutes les questions archivées
+	// SÃ©lection de toutes les questions archivÃ©es
 	public static ArrayList<HistoQuestion> selectAllHistoQuestions () {
 		ArrayList<HistoQuestion> lesQuestions = new ArrayList<HistoQuestion>();
 		String requete = "SELECT * FROM histoQuestion;";
@@ -3136,12 +3134,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesQuestions;
 	}
 	
-	// Recherche d'une question archivée
+	// Recherche d'une question archivÃ©e
 	public static ArrayList<HistoQuestion> selectLikeHistoQuestion(String mot) {
 		ArrayList<HistoQuestion> lesQuestions = new ArrayList<HistoQuestion>();
 		String requete = "SELECT * FROM histoQuestion WHERE "
@@ -3167,7 +3165,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesQuestions;
 	}
@@ -3185,14 +3183,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbquestion;
 	}
 	
 	/*** GESTION DES REPONSES ***/
 	
-	// Insertion d'une réponse
+	// Insertion d'une rÃ©ponse
 	public static void insertReponse (Reponse uneReponse) {
 		String requete = "INSERT INTO reponse VALUES (null, " 
 				+ uneReponse.getIdquestion() + ", '"
@@ -3205,11 +3203,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Édition d'une réponse
+	// Ã‰dition d'une rÃ©ponse
 	public static void updateReponse (Reponse uneReponse) {
 		String requete = "UPDATE reponse SET idquestion = "+uneReponse.getIdquestion()+", reponse = '"+uneReponse.getReponse()+"', client = "+uneReponse.getIdclient()+" WHERE idreponse = "+uneReponse.getIdreponse()+";";
 		try {
@@ -3219,11 +3217,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Suppression d'une réponse
+	// Suppression d'une rÃ©ponse
 	public static void deleteReponse (int idreponse) {
 		String requete = "DELETE FROM reponse WHERE idreponse = "+idreponse+";";
 		try {
@@ -3233,11 +3231,11 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 	}
 	
-	// Sélection de toutes les réponses
+	// SÃ©lection de toutes les rÃ©ponses
 	public static ArrayList<Reponse> selectAllReponse () {
 		ArrayList<Reponse> lesReponses = new ArrayList<Reponse>();
 		String requete = "SELECT * FROM reponse;";
@@ -3257,12 +3255,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesReponses;
 	}
 	
-	// Sélection d'une réponse en fonction de sa question
+	// SÃ©lection d'une rÃ©ponse en fonction de sa question
 	public static Reponse selectWhereReponseQuestion (int idquestion) {
 		Reponse uneReponse = null;
 		String requete = "SELECT * FROM reponse WHERE idquestion = '"+idquestion+"';";
@@ -3281,12 +3279,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return uneReponse;
 	}
 	
-	// Recherche d'une réponse
+	// Recherche d'une rÃ©ponse
 	public static ArrayList<Reponse> selectLikeReponse(String mot) {
 		ArrayList<Reponse> lesReponses = new ArrayList<Reponse>();
 		String requete = "SELECT * FROM response WHERE "
@@ -3310,12 +3308,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesReponses;
 	}
 	
-	// Sélection de toutes les réponses archivées
+	// SÃ©lection de toutes les rÃ©ponses archivÃ©es
 	public static ArrayList<HistoReponse> selectAllHistoReponse () {
 		ArrayList<HistoReponse> lesReponses = new ArrayList<HistoReponse>();
 		String requete = "SELECT * FROM histoReponse;";
@@ -3338,12 +3336,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesReponses;
 	}
 		
-	// Recherche d'une reponse archivée
+	// Recherche d'une reponse archivÃ©e
 	public static ArrayList<HistoReponse> selectLikeHistoReponse(String mot) {
 		ArrayList<HistoReponse> lesReponses = new ArrayList<HistoReponse>();
 		String requete = "SELECT * FROM histoReponse WHERE "
@@ -3373,12 +3371,12 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesReponses;
 	}
 	
-	// Nombre de réponses
+	// Nombre de rÃ©ponses
 	public static int countReponses () {
 		int nbreponse = 0;
 		String requete = "SELECT count(*) as nb FROM reponse;";
@@ -3391,14 +3389,14 @@ public class Modele {
 			}
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return nbreponse;
 	}
 	
 	/*** GESTION DE LA VIEW 'vstatsproduits' ***/
 	
-	// Séléction de la view 'vstatsproduits'
+	// SÃ©lÃ©ction de la view 'vstatsproduits'
 	public static ArrayList<Vstatsproduits> selectAllVstatsproduits () {
 		ArrayList<Vstatsproduits> lesStatsProduits = new ArrayList<Vstatsproduits>();
 		String requete = "SELECT * FROM vstatsproduits;";
@@ -3421,14 +3419,14 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesStatsProduits;
 	}
 	
 	/*** GESTION DE LA VIEW 'mesQuestions' ***/
 	
-	// Séléction de la view 'mesQuestions'
+	// SÃ©lÃ©ction de la view 'mesQuestions'
 	public static ArrayList<MesQuestions> selectAllMesQuestions () {
 		ArrayList<MesQuestions> lesQuestions = new ArrayList<MesQuestions>();
 		String requete = "SELECT * FROM mesQuestions;";
@@ -3451,7 +3449,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesQuestions;
 	}
@@ -3486,7 +3484,7 @@ public class Modele {
 			unStatement.close();
 			uneBdd.seDeconnecter();
 		} catch (SQLException exp) {
-			System.out.println("Erreur de requête : " + requete);
+			System.out.println("Erreur de requÃªte : " + requete);
 		}
 		return lesQuestions;
 	}
